@@ -1,6 +1,8 @@
+![Swift](https://github.com/janodev/injection/workflows/Swift/badge.svg?branch=main)
+
 Dependency injection using property wrappers.
 
-### Registering types:
+### Registering types
 ```swift
 // injecting a type
 DependencyContainer.register(HomeCoordinator())
