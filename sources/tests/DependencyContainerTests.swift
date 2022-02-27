@@ -78,6 +78,17 @@ final class DependencyContainerTests: XCTestCase
         let anotherScreen = ObjectWithProtocolDependency()
         XCTAssertEqual(anotherScreen.check(), "mock")
     }
+
+    func testRegisteringOptional() {
+        // WHEN registering an optional instance
+        struct Foo {}
+        let optional: Foo? = Foo()
+        DependencyContainer.register(optional)
+
+        // IT is resolved a non optional type
+        let type = DependencyContainer.resolve() as Foo
+        XCTAssertNotNil(type)
+    }
 }
 
 // MARK: - Test objects

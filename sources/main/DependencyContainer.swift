@@ -18,7 +18,23 @@ public final class DependencyContainer: CustomDebugStringConvertible
 
     // Key to register a type with.
     private static func keyForType<T>(_ type: T.Type) -> String {
-        String(describing: T.self)
+        let typeDescription = String(describing: T.self)
+        /*
+         This relies on the following for Optional detection:
+         https://developer.apple.com/documentation/swift/expressiblebynilliteral
+         > Only the Optional type conforms to ExpressibleByNilLiteral. ExpressibleByNilLiteral
+         conformance for types that use nil for other purposes is discouraged.
+         */
+        if type is ExpressibleByNilLiteral.Type,
+            typeDescription.hasPrefix("Optional<"),
+            typeDescription.hasSuffix(">")
+        {
+            // remove the wrapping "Optional<>" so key is just the type,
+            // same as if we had registered a non optional type
+            return String(typeDescription.dropFirst("Optional<".count).dropLast())
+        } else {
+            return typeDescription
+        }
     }
 
     // MARK: - Querying state
@@ -97,5 +113,15 @@ public final class DependencyContainer: CustomDebugStringConvertible
         Container registered \(dependencies.count) dependencies:
         \t\(dependencies.keys.sorted().joined(separator: "\n\t"))
         """
+    }
+}
+
+private protocol OptionalProtocol {
+    func wrappedType() -> Any.Type
+}
+
+extension Optional: OptionalProtocol {
+    func wrappedType() -> Any.Type {
+        return Wrapped.self
     }
 }
