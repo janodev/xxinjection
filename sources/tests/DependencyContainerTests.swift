@@ -1,20 +1,21 @@
 import Injection
 import XCTest
 
-final class FactoryTests: XCTestCase
-{
-    // The struct created by a factory is the same struct registered.
-    func testFactory() {
-        let factory = Factory { container in HomeCoordinator() }
-        XCTAssertEqual(String(describing: factory.typeCreated.self), String(describing: HomeCoordinator.self))
-    }
-}
-
-final class DependencyTests: XCTestCase
+final class DependencyContainerTests: XCTestCase
 {
     override func setUp() {
         super.setUp()
         DependencyContainer.unregisterAll()
+    }
+
+    func testIsRegistered() {
+        // Test registering a struct
+        DependencyContainer.register(HomeCoordinator())
+        XCTAssertTrue(DependencyContainer.isRegistered(HomeCoordinator.self))
+
+        // Test registering a protocol
+        DependencyContainer.register(HomeCoordinator() as HomeCoordinating)
+        XCTAssertTrue(DependencyContainer.isRegistered(HomeCoordinating.self))
     }
 
     // A struct registered with a factory is resolved.

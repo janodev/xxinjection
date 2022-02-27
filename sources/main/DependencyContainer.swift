@@ -28,7 +28,7 @@ public final class DependencyContainer: CustomDebugStringConvertible
      - Parameter dependency: dependency whose registration is being queried.
      - Returns: true if the dependency is registered.
      */
-    public static func isRegistered<T>(_ dependency: T) -> Bool {
+    public static func isRegistered<T>(_ dependency: T.Type) -> Bool {
         let key = keyForType(T.self)
         return shared.dependencies[key] != nil
     }
