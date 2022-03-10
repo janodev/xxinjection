@@ -1,0 +1,18 @@
+"error.unspecified.helpAnchor" = "OK";
+"error.unspecified.message" = "Sorry, something went wrong.";
+"error.unspecified.title" = "Error";
+
+"error.authorization.errorDescription" = "Protected resource";
+"error.authorization.failureReason" = "Missing or expired authorization.";
+"error.authorization.helpAnchor" = "OK";
+"error.authorization.recoverySuggestion" = "Try authenticating again.";
+
+"error.insecureConnection.errorDescription" = "Insecure connection";
+"error.insecureConnection.failureReason" = "Your connection doesn’t guarantee safe access to the server.";
+"error.insecureConnection.helpAnchor" = "OK";
+"error.insecureConnection.recoverySuggestion" = "Check your network configuration.";
+
+"error.notFound.errorDescription" = "Missing page";
+"error.notFound.failureReason" = "So sorry, couldn’t find that resource.";
+"error.notFound.helpAnchor" = "OK";
+"error.notFound.recoverySuggestion" = "But maybe it’s elsewhere, did you try our search feature?";
