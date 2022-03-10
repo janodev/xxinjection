@@ -2,26 +2,26 @@
 import PackageDescription
 
 let package = Package(
-    name: "injection",
+    name: "kit",
+    defaultLocalization: "en",
     platforms: [
         .iOS(.v15), .macOS(.v12)
     ],
     products: [
-        .library(name: "Injection", type: .dynamic, targets: ["Injection"]),
-        .library(name: "InjectionStatic", type: .static, targets: ["Injection"])
+        .library(name: "Kit", type: .dynamic, targets: ["Kit"]),
+        .library(name: "KitStatic", type: .static, targets: ["Kit"])
     ],
     dependencies: [
-        .package(url: "git@github.com:apple/swift-docc-plugin.git", branch: "main"),
     ],
     targets: [
         .target(
-            name: "Injection",
+            name: "Kit",
             dependencies: [],
             path: "sources/main"
         ),
         .testTarget(
-            name: "InjectionTests",
-            dependencies: ["Injection"],
+            name: "KitTests",
+            dependencies: ["Kit"],
             path: "sources/tests"
         )
     ]
