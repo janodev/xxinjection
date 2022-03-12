@@ -12,17 +12,17 @@ let package = Package(
         .library(name: "MyTumblrStatic", type: .static, targets: ["MyTumblr"])
     ],
     dependencies: [
-        .package(name: "apiclient", url: "git@github.com:janodev/apiclient.git", from: "1.0.0"),
-        .package(name: "autolayout", url: "git@github.com:janodev/autolayout.git", from: "1.0.0"),
-        .package(name: "codablehelpers", url: "git@github.com:janodev/codablehelpers.git", from: "1.0.0"),
-        .package(name: "coordinator", url: "git@github.com:janodev/coordinator.git", from: "1.0.0"),
-        .package(name: "coredatastack", url: "git@github.com:janodev/coredatastack.git", from: "1.0.0"),
-        .package(name: "injection", url: "git@github.com:janodev/injection.git", from: "1.0.0"),
-        .package(name: "keychain", url: "git@github.com:janodev/keychain.git", from: "1.0.0"),
-        .package(name: "kit", path: "../kit"),
+        .package(name: "apiclient", url: "git@github.com:janodev/apiclient.git", branch: "main"),
+        .package(name: "autolayout", url: "git@github.com:janodev/autolayout.git", branch: "main"),
+        .package(name: "codablehelpers", url: "git@github.com:janodev/codablehelpers.git", branch: "main"),
+        .package(name: "coordinator", url: "git@github.com:janodev/coordinator.git", branch: "main"),
+        .package(name: "coredatastack", url: "git@github.com:janodev/coredatastack.git", branch: "main"),
+        .package(name: "injection", url: "git@github.com:janodev/injection.git", branch: "main"),
+        .package(name: "keychain", url: "git@github.com:janodev/keychain.git", branch: "main"),
+        .package(name: "kit", url: "git@github.com:janodev/kit.git", branch: "main"),
         .package(name: "OAuth2", path: "../../.."),
-        .package(name: "tumblrnpf", url: "git@github.com:janodev/tumblrnpf.git", from: "1.0.0"),
-        .package(name: "TumblrNPFPersistence", url: "git@github.com:janodev/tumblrnpfpersistence.git", from: "1.0.0")
+        .package(name: "tumblrnpf", url: "git@github.com:janodev/tumblrnpf.git", branch: "main"),
+        .package(name: "TumblrNPFPersistence", url: "git@github.com:janodev/tumblrnpfpersistence.git", branch: "main")
     ],
     targets: [
         .target(
@@ -55,7 +55,15 @@ let package = Package(
         .testTarget(
             name: "MyTumblrTests",
             dependencies: ["MyTumblr"],
-            path: "sources/tests"
+            path: "sources/tests",
+            resources: [
+                .copy("resources/401.json"),
+                .copy("resources/APIError.json"),
+                .copy("resources/swift-index.json"),
+                .copy("resources/tumblr1.json"),
+                .copy("resources/tumblr2.json"),
+                .copy("resources/tumblr3.json")
+            ]
         )
     ]
 )
