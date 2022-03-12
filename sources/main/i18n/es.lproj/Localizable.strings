@@ -1,0 +1,18 @@
+"error.unspecified.helpAnchor" = "OK";
+"error.unspecified.message" = "Lo siento, algo ha ido mal.";
+"error.unspecified.title" = "Error";
+
+"error.authorization.errorDescription" = "Recurso protegido";
+"error.authorization.failureReason" = "Autorización ausente o expirada.";
+"error.authorization.helpAnchor" = "OK";
+"error.authorization.recoverySuggestion" = "Entra de nuevo para autorizarte.";
+
+"error.insecureConnection.errorDescription" = "Conexión insegura";
+"error.insecureConnection.failureReason" = "Tu conexión no garantiza acceso seguro al servidor.";
+"error.insecureConnection.helpAnchor" = "OK";
+"error.insecureConnection.recoverySuggestion" = "Comprueba si estás conectando a traves de un intermediario.";
+
+"error.notFound.errorDescription" = "No encontrado";
+"error.notFound.failureReason" = "Lo siento, esa página ya no existe.";
+"error.notFound.helpAnchor" = "OK";
+"error.notFound.recoverySuggestion" = "Pero quizas este en alguna parte ¿has probado la función de busqueda?";
